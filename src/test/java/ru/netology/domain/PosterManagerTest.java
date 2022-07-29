@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class PosterManagerTest {
     PosterManager manager = new PosterManager();
+
     @Test
 
     public void shouldGiveList() {
@@ -18,6 +19,7 @@ public class PosterManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveZero() {
         String[] expected = {};
@@ -25,6 +27,7 @@ public class PosterManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveOne() {
         manager.save("First");
@@ -33,6 +36,7 @@ public class PosterManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveLimit() {
         manager.save("First");
@@ -46,7 +50,7 @@ public class PosterManagerTest {
         manager.save("Ninth");
         manager.save("Tenth");
 
-        String[] expected = {"Tenth", "Ninth", "Eighth", "Seventh","Sixth", "Fifth", "Fourth", "Third", "Second", "First"};
+        String[] expected = {"Tenth", "Ninth", "Eighth", "Seventh", "Sixth", "Fifth", "Fourth", "Third", "Second", "First"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -66,11 +70,12 @@ public class PosterManagerTest {
         manager.save("Tenth");
         manager.save("Eleventh");
 
-        String[] expected = {"Eleventh", "Tenth", "Ninth", "Eighth", "Seventh","Sixth", "Fifth", "Fourth", "Third", "Second"};
+        String[] expected = {"Eleventh", "Tenth", "Ninth", "Eighth", "Seventh", "Sixth", "Fifth", "Fourth", "Third", "Second"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveUnderLimit() {
         manager.save("First");
@@ -84,13 +89,13 @@ public class PosterManagerTest {
         manager.save("Ninth");
 
 
-        String[] expected = {"Ninth", "Eighth", "Seventh","Sixth", "Fifth", "Fourth", "Third", "Second", "First"};
+        String[] expected = {"Ninth", "Eighth", "Seventh", "Sixth", "Fifth", "Fourth", "Third", "Second", "First"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    }
+}
 
 
 

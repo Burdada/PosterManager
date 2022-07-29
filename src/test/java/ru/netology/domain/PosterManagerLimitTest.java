@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 public class PosterManagerLimitTest {
     PosterManager manager = new PosterManager(5);
-   @Test
+
+    @Test
     public void shouldGiveList() {
 
         manager.save("First");
@@ -17,6 +18,7 @@ public class PosterManagerLimitTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveZero() {
         String[] expected = {};
@@ -39,6 +41,7 @@ public class PosterManagerLimitTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldGiveOverLimit() {
         manager.save("First");
@@ -52,18 +55,18 @@ public class PosterManagerLimitTest {
         manager.save("Ninth");
         manager.save("Tenth");
 
-        String[] expected = {"Tenth", "Ninth", "Eighth", "Seventh","Sixth"};
+        String[] expected = {"Tenth", "Ninth", "Eighth", "Seventh", "Sixth"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldUnderLimit() {
         manager.save("First");
         manager.save("Second");
         manager.save("Third");
         manager.save("Fourth");
-
 
 
         String[] expected = {"Fourth", "Third", "Second", "First"};
